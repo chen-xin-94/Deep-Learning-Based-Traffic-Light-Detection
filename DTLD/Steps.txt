@@ -1,0 +1,66 @@
+TEST
+1.change 'path' in yml
+
+2. cd 
+cd D:\Salles\DTLD
+
+3.show（with boxes）
+python ./show_rgb.py --label_file ./DTLD/Berlin.yaml --data_base_dir ./DTLD
+
+4. save as jpg (RUN AS ADMINISTRATOR)
+python ./save_as_jpg.py --label_file ./DTLD/DTLD_all.yaml
+
+5. to tfrecord
+
+python ./DTLD_to_tfrecord.py --input_yaml ./DTLD_JPEG/DTLD_train.yaml  --output_path train.record
+python ./DTLD_to_tfrecord.py --input_yaml ./DTLD_JPEG/DTLD_test.yaml  --output_path test.record
+python ./DTLD_to_tfrecord_testset.py --input_yaml ./DTLD_JPEG/DTLD_test.yaml  --output_path test_b5.record --width 5
+python ./DTLD_to_tfrecord.py --input_yaml ./DTLD_JPEG/DTLD_test.yaml  --output_path test_b10.record --width 10
+
+
+python ./DTLD_to_tfrecord2.py --input_yaml ./DTLD_JPEG/DTLD_train.yaml  --output_path train2.record
+python ./DTLD_to_tfrecord2.py --input_yaml ./DTLD_JPEG/DTLD_test.yaml  --output_path test2.record
+python ./DTLD_to_tfrecord2.py --input_yaml ./DTLD_JPEG/DTLD_test.yaml  --output_path test2_b5.record --width 5
+python ./DTLD_to_tfrecord2.py --input_yaml ./DTLD_JPEG/DTLD_test.yaml  --output_path test2_b10.record --width 10
+
+python ./DTLD_to_tfrecord2_2.py --input_yaml ./DTLD_JPEG/DTLD_train.yaml  --output_path train2_2.record --width 0
+python ./DTLD_to_tfrecord2_2.py --input_yaml ./DTLD_JPEG/DTLD_test.yaml  --output_path test2_2.record --width 0
+python ./DTLD_to_tfrecord2_2.py --input_yaml ./DTLD_JPEG/DTLD_test.yaml  --output_path test2_2_b5.record --width 5
+python ./DTLD_to_tfrecord2_2.py --input_yaml ./DTLD_JPEG/DTLD_test.yaml  --output_path test2_2_b10.record --width 0
+
+python ./DTLD_to_tfrecord_pictogram.py --input_yaml ./DTLD_JPEG/DTLD_train.yaml  --output_path train_p.record
+python ./DTLD_to_tfrecord_pictogram.py --input_yaml ./DTLD_JPEG/DTLD_test.yaml  --output_path test_p.record
+python ./DTLD_to_tfrecord_pictogram_testset.py --input_yaml ./DTLD_JPEG/DTLD_test.yaml  --output_path test_p_b5.record --width 5
+python ./DTLD_to_tfrecord_pictogram.py --input_yaml ./DTLD_JPEG/DTLD_test.yaml  --output_path test_p_b10.record --width 10
+
+python ./DTLD_to_tfrecord_pictogram_simple.py --input_yaml ./DTLD_JPEG/DTLD_test.yaml  --output_path test_p_s.record
+python ./DTLD_to_tfrecord_pictogram_simple.py --input_yaml ./DTLD_JPEG/DTLD_train.yaml  --output_path train_p_s.record
+
+
+
+6.dtld_dataset_stats
+python ./dtld_dataset_stats.py --label_file ./DTLD_JPEG/DTLD_all.yaml --data_base_dir ./DTLD_JPEG
+python ./dataset_stats.py ./DTLD_JPEG/DTLD_all.yaml
+python ./dataset_stats_spec.py ./DTLD_JPEG/DTLD_all.yaml
+python ./dataset_stats_testset.py ./DTLD_JPEG/DTLD_test.yaml
+
+
+LABEL_DICT =  {
+  "Off" : 0,
+  "Red" : 1,
+  "Yellow" : 2,
+  "Red-yellow" : 3,
+  "Green":4
+  }
+
+LABEL_DICT =  {
+  "Circle" : 0,
+  "Straight" : 1,
+  "Left" : 2,
+  # "StraightLeft" : 3,
+  "Right": 4,
+  "Pedestrian": 8,
+  "Bike": 9
+  }
+
+[8536, 247, 312, 0, 93, 2848, 417]

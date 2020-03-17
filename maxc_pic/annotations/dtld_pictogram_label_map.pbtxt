@@ -1,0 +1,70 @@
+item {
+  id: 1
+  name: 'Green_Circle'
+}
+
+item {
+  id: 2
+  name: 'Green_Straight'
+}
+
+item {
+  id: 3
+  name: 'Green_Left'
+}
+
+item {
+  id: 4
+  name: 'Green_Right'
+}
+
+item {
+  id: 5
+  name: 'Green_Pedestrian'
+}
+
+item {
+  id: 6
+  name: 'Green_Bus'
+}
+item {
+  id: 7
+  name: 'Red_Circle'
+}
+
+item {
+  id: 8
+  name: 'Red_Straight'
+}
+
+item {
+  id: 9
+  name: 'Red_Left'
+}
+
+item {
+  id: 10
+  name: 'Red_Right'
+}
+
+item {
+  id: 11
+  name: 'Red_Pedestrian'
+}
+
+item {
+  id: 12
+  name: 'Red_Bus'
+}
+item {
+  id: 13
+  name: 'Yellow_Bus'
+}
+item {
+  id: 14
+  name: 'Yellow_Circle'
+}
+item {
+  id: 15
+  name: 'Red_Yellow_Circle'
+}

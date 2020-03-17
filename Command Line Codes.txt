@@ -1,0 +1,193 @@
+test
+
+-	ssd_inception_v2
+python eval.py --logtostderr --eval_dir=evalpath/ssd_inception_v2_coco_test/ --pipeline_config_path=training/ssd_inception_v2_coco/ssd_inception_v2_coco_test.config --checkpoint_dir=training/ssd_inception_v2_coco/
+python eval.py --logtostderr --eval_dir=evalpath/ssd_inception_v2_test/ --pipeline_config_path=training/ssd_inception_v2_coco/ssd_inception_v2_test.config --checkpoint_dir=training/ssd_inception_v2_coco/
+
+
+
+
+-	faster_rcnn_inception_v2
+python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2_coco_test/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_coco_test.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2_coco_b5/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_coco_b5.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2_coco_b10/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_coco_b10.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+
+
+python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2_test/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_test.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2_b5/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_b5.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2_b10/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_b10.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+
+
+
+pr_curves
+
+python pr_curve_classes_off.py --model_name=faster_rcnn_inception_v2_b5
+python pr_curve_classes_off.py --model_name=faster_rcnn_inception_v2_b10
+python pr_curve_classes_off.py --model_name=ssd_inception_v2_test
+
+python pr_curve_classes_redyellow.py --model_name=faster_rcnn_inception_v2_b5
+python pr_curve_classes_redyellow.py --model_name=faster_rcnn_inception_v2_b10
+python pr_curve_classes_redyellow.py --model_name=ssd_inception_v2_test
+
+python pr_curve_classes_pic_simple.py --model_name=faster_rcnn_inception_v2_test
+
+python pr_curve_classes_pic.py --model_name=faster_rcnn_inception_v2_b5
+python pr_curve_classes_pic.py  --model_name=faster_rcnn_inception_v2_b10
+
+python pr_curve_pixels.py
+python pr_curve_pixels_pic.py
+python pr_curve_pixels_off.py
+python pr_curve_pixels_redyellow.py
+
+
+1. open anaconda prompt
+
+# 2 . 	cd to the following folder
+#	cd C:\Salles\TensorFlow\workspace\maxc_dtld
+
+3. training and evaluation
+
+3.1 training
+
+3.1.1 ssd_mobilenet_v2
+	python train.py --logtostderr --train_dir=training/ssd_mobilenet_v2_coco/ --pipeline_config_path=training/ssd_mobilenet_v2_coco/ssd_mobilenet_v2_coco.config
+
+3.1.2 ssd_inception_v2_
+	python train.py --logtostderr --train_dir=training/ssd_inception_v2_coco/ --pipeline_config_path=training/ssd_inception_v2_coco/ssd_inception_v2_coco.config
+
+python train.py --logtostderr --train_dir=training/ssd_inception_v2_coco2/ --pipeline_config_path=training/ssd_inception_v2_coco2/ssd_inception_v2_coco2.config
+
+3.1.3 faster_rcnn_inception_v2
+	python train.py --logtostderr --train_dir=training/faster_rcnn_inception_v2_coco/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_coco.config
+
+3.1.4 faster_rcnn_resnet101_coco
+	python train.py --logtostderr --train_dir=training/faster_rcnn_resnet101_coco/ --pipeline_config_path=training/faster_rcnn_resnet101_coco/faster_rcnn_resnet101_coco.config
+
+3.1.5 rfcn_resnet101
+	python train.py --logtostderr --train_dir=training/rfcn_resnet101_coco/ --pipeline_config_path=training/rfcn_resnet101_coco/rfcn_resnet101_coco.config
+
+
+3.2 evaluation (open a new prompt and  run the corresponding line)
+!!!
+activate maxc
+!!!
+3.2.1 ssd_mobilenet_v2 
+	python eval.py --logtostderr --eval_dir=evalpath/ssd_mobilenet_v2_coco/ --pipeline_config_path=training/ssd_mobilenet_v2_coco/ssd_mobilenet_v2_coco.config --checkpoint_dir=training/ssd_mobilenet_v2_coco/
+	python eval_pr_curve.py --logtostderr --eval_dir=evalpath/ssd_mobilenet_v2/ --pipeline_config_path=training/ssd_mobilenet_v2_coco/ssd_mobilenet_v2.config --checkpoint_dir=training/ssd_mobilenet_v2_coco/
+	
+3.2.2 ssd_inception_v2
+	python eval.py --logtostderr --eval_dir=evalpath/ssd_inception_v2_coco/ --pipeline_config_path=training/ssd_inception_v2_coco/ssd_inception_v2_coco.config --checkpoint_dir=training/ssd_inception_v2_coco/
+	python eval.py --logtostderr --eval_dir=evalpath/ssd_inception_v2_coco2/ --pipeline_config_path=training/ssd_inception_v2_coco2/ssd_inception_v2_coco2.config --checkpoint_dir=training/ssd_inception_v2_coco2/
+
+	python eval_pr_curve.py --logtostderr --eval_dir=evalpath/ssd_inception_v2/ --pipeline_config_path=training/ssd_inception_v2_coco/ssd_inception_v2.config --checkpoint_dir=training/ssd_inception_v2_coco/
+	python eval_pr_curve.py --logtostderr --eval_dir=evalpath/ssd_inception_v2_2/ --pipeline_config_path=training/ssd_inception_v2_coco2/ssd_inception_v2_2.config --checkpoint_dir=training/ssd_inception_v2_coco2/
+
+3.2.3 faster_rcnn_inception_v2
+	python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2_coco/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_coco.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+	python eval_pr_curve.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+	
+	python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+
+	python eval_pr_curve.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2_b5/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_b5.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+	python eval_pr_curve.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2_b10/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_b10.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+	python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2_coco_b5/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_coco_b5.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+	python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2_coco_b10/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_coco_b10.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+
+3.2.4 faster_rcnn_resnet101_coco
+	python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_resnet101_coco/ --pipeline_config_path=training/faster_rcnn_resnet101_coco/faster_rcnn_resnet101_coco.config --checkpoint_dir=training/faster_rcnn_resnet101_coco/
+	python eval_pr_curve.py --logtostderr --eval_dir=evalpath/faster_rcnn_resnet101/ --pipeline_config_path=training/faster_rcnn_resnet101_coco/faster_rcnn_resnet101.config --checkpoint_dir=training/faster_rcnn_resnet101_coco/
+
+3.2.5 rfcn_resnet101
+	python eval.py --logtostderr --eval_dir=evalpath/rfcn_resnet101_coco/ --pipeline_config_path=training/rfcn_resnet101_coco/rfcn_resnet101_coco.config --checkpoint_dir=training/rfcn_resnet101_coco/
+	python eval_pr_curve.py --logtostderr --eval_dir=evalpath/rfcn_resnet101/ --pipeline_config_path=training/rfcn_resnet101_coco/rfcn_resnet101.config --checkpoint_dir=training/rfcn_resnet101_coco/
+
+
+python train.py --logtostderr --train_dir=training/faster_rcnn_inception_v2_coco/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_coco_continue.config
+python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2_coco/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_coco_continue.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+
+
+
+3.3 Tensorboard for eval(optional, open a new prompt and run the corresponding line)
+cd C:\Users\kfzmech1\Salles\TensorFlow\workspace\maxc_dtld
+	tensorboard --logdir=evalpath/ssd_mobilenet_v2_coco/ --port=6001
+	tensorboard --logdir=evalpath/ssd_inception_v2_coco/ --port=6002
+	# tensorboard --logdir=evalpath/ssd_inception_v2_coco2/
+	tensorboard --logdir=evalpath/faster_rcnn_inception_v2_coco/ --port=6003
+	# tensorboard --logdir=evalpath/faster_rcnn_inception_v2/
+	tensorboard --logdir=evalpath/faster_rcnn_resnet101_coco/ --port=6004
+	tensorboard --logdir=evalpath/rfcn_resnet101_coco/ --port=6005
+ 
+
+training and evaluation results in:
+C:\Users\admech\Salles\TensorFlow\workspace\maxc\training
+C:\Users\admech\Salles\TensorFlow\workspace\maxc\evalpath
+
+target:
+D:\Slles\results\v2
+
+
+# special eval
+python eval.py --logtostderr --eval_dir=evalpath/ssd_mobilenet_v2_coco_eval/ --pipeline_config_path=training/ssd_mobilenet_v2_coco/ssd_mobilenet_v2_coco_eval.config --checkpoint_dir=training/ssd_mobilenet_v2_coco/
+tensorboard --logdir=evalpath/ssd_mobilenet_v2_coco_eval/
+
+python eval.py --logtostderr --eval_dir=evalpath/ssd_inception_v2_coco_eval/ --pipeline_config_path=training/ssd_inception_v2_coco/ssd_inception_v2_coco_eval.config --checkpoint_dir=training/ssd_inception_v2_coco/
+tensorboard --logdir=evalpath/ssd_inception_v2_coco_eval/
+
+python eval.py --logtostderr --eval_dir=evalpath/faster_rcnn_inception_v2_coco_eval/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_coco_eval.config --checkpoint_dir=training/faster_rcnn_inception_v2_coco/
+tensorboard --logdir=evalpath/faster_rcnn_inception_v2_coco_eval/
+
+python eval.py --logtostderr --eval_dir=evalpath/rfcn_resnet101_coco_eval/ --pipeline_config_path=training/rfcn_resnet101_coco/rfcn_resnet101_coco_eval.config --checkpoint_dir=training/rfcn_resnet101_coco/
+tensorboard --logdir=evalpath/rfcn_resnet101_coco_eval/
+
+4. Tensorboard for training (optional)
+tensorboard --logdir=training\ssd_mobilenet_v2_coco\
+tensorboard --logdir=training\ssd_inception_v2_coco\
+tensorboard --logdir=training\faster_rcnn_inception_v2_coco\
+tensorboard --logdir=training\rfcn_resnet101_coco\
+
+- model_main.py (with unknown error)
+run model_main.py with --logtostderr --model_dir=<path_to_save_checkpoints> --pipline_config_path=<path_of_your_pipeline.config>.
+python model_main.py --pipeline_config_path=training/ssd_inception_v2_coco/ssd_inception_v2_coco.config --model_dir=training/ssd_inception_v2_coco/ --num_train_steps=20000
+--sample_1_of_n_eval_examples=1 --alsologtostderr
+
+	Results in this folder:
+		C:\Users\admech\Salles\TensorFlow\workspace\maxc\training\NAMEOFFRAMEWORK(e.g. \ssd_mobilenet_v2_coco\)
+
+
+5. export_inference_graph
+
+python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/ssd_mobilenet_v2_coco/ssd_mobilenet_v2_coco.config --trained_checkpoint_prefix training/ssd_mobilenet_v2_coco/model.ckpt-100000 --output_directory trained_inference_graphs/output_inference_graph_ssd_mobilenet_v2
+
+python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/ssd_inception_v2_coco/ssd_inception_v2_coco.config --trained_checkpoint_prefix training/ssd_inception_v2_coco/model.ckpt-100000 --output_directory trained_inference_graphs/output_inference_graph_ssd_inception_v2_lr
+
+# python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/ssd_inception_v2_coco2/ssd_inception_v2_coco2.config --trained_checkpoint_prefix training/ssd_inception_v2_coco2/model.ckpt-100000 --output_directory trained_inference_graphs/output_inference_graph_ssd_inception_v2
+
+python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_coco.config --trained_checkpoint_prefix training/faster_rcnn_inception_v2_coco/model.ckpt-500000 --output_directory trained_inference_graphs/output_inference_graph_faster_rcnn_inception_v2
+
+python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/faster_rcnn_resnet101_coco/faster_rcnn_resnet101_coco.config --trained_checkpoint_prefix training/faster_rcnn_resnet101_coco/model.ckpt-200000 --output_directory trained_inference_graphs/output_inference_graph_faster_rcnn_resnet101
+
+python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/rfcn_resnet101_coco/rfcn_resnet101_coco.config --trained_checkpoint_prefix training/rfcn_resnet101_coco/model.ckpt-20000 --output_directory trained_inference_graphs/output_inference_graph_rfcn_resnet101
+
+
+python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/ssd_inception_v2_coco/ssd_inception_v2_coco.config --trained_checkpoint_prefix training/ssd_inception_v2_coco/model.ckpt-93782 --output_directory trained_inference_graphs/output_inference_graph_ssd_inception_v2
+python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/faster_rcnn_inception_v2_coco/faster_rcnn_inception_v2_coco.config --trained_checkpoint_prefix training/faster_rcnn_inception_v2_coco/model.ckpt-414112 --output_directory trained_inference_graphs/output_inference_graph_faster_rcnn_inception_v2
+
+
+
+6.inference (bstld)
+
+python bstld/tf_object_detection/inference.py --frozen_graph=C:\Users\admech\Salles\TensorFlow\workspace\maxc\trained_inference_graphs\output_inference_graph_ssd_mobilenet_v2_coco.pb\frozen_inference_graph.pb --data_input=C:\Users\admech\Salles\TensorFlow\workspace\maxc\images\test\38340.png --show=-1
+
+python bstld/tf_object_detection/inference.py --frozen_graph=C:\Users\admech\Salles\TensorFlow\workspace\maxc\trained_inference_graphs\output_inference_graph_ssd_inception_v2_coco.pb\frozen_inference_graph.pb --data_input=C:\Users\admech\Salles\TensorFlow\workspace\maxc\images\test\38340.png --show=-1
+
+python bstld/tf_object_detection/inference.py --frozen_graph=C:\Users\admech\Salles\TensorFlow\workspace\maxc\trained_inference_graphs\output_inference_graph_faster_rcnn_inception_v2.pb\frozen_inference_graph.pb --data_input=C:\Users\admech\Salles\TensorFlow\workspace\maxc\images\test\38340.png --show=-1
+
+python bstld/tf_object_detection/inference.py --frozen_graph=C:\Users\admech\Salles\TensorFlow\workspace\maxc\trained_inference_graphs\output_inference_graph_rfcn_resnet101_coco.pb\frozen_inference_graph.pb --data_input=C:\Users\admech\Salles\TensorFlow\workspace\maxc\images\test\38340.png --show=-1
+
+
+
+python bstld/tf_object_detection/inference_export.py --frozen_graph=C:\Users\admech\Salles\TensorFlow\workspace\maxc\trained_inference_graphs\output_inference_graph_ssd_inception_v2_coco.pb\frozen_inference_graph.pb --data_input=C:\Users\admech\Salles\TensorFlow\workspace\maxc\images\test\38340.png --show=3 --json_out=C:/Users/admech/Salles/TensorFlow/workspace/maxc/interface_to_matlab/
+
+7.eval_test
+	python eval.py --logtostderr --eval_dir=evalpath/ssd_mobilenet_v2_coco_test/ --pipeline_config_path=training/ssd_mobilenet_v2_coco/ssd_mobilenet_v2_coco_test.config --checkpoint_dir=training/ssd_mobilenet_v2_coco/

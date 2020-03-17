@@ -1,0 +1,3 @@
+v2
+ssd: dropout->true
+rcnn: steps->500000
